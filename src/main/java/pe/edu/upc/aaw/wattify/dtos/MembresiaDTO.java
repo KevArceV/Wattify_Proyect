@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.wattify.dtos;
 
+import pe.edu.upc.aaw.wattify.entities.Usuario;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -9,6 +11,7 @@ public class MembresiaDTO {
     private LocalDate Fecha_inicio;
     private LocalDate Fecha_fin;
     private BigDecimal Precio;
+    private Usuario usuario;
 
     public int getId() {
         return id;
@@ -48,5 +51,13 @@ public class MembresiaDTO {
 
     public void setPrecio(BigDecimal precio) {
         Precio = precio;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -17,16 +17,20 @@ public class Membresia {
     private LocalDate Fecha_fin;
     @Column(name = "Precio", length = 10, nullable = false)
     private BigDecimal Precio;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Membresia() {
     }
 
-    public Membresia(int id, String tipo_Membresia, LocalDate fecha_inicio, LocalDate fecha_fin, BigDecimal precio) {
+    public Membresia(int id, String tipo_Membresia, LocalDate fecha_inicio, LocalDate fecha_fin, BigDecimal precio, Usuario usuario) {
         this.id = id;
         Tipo_Membresia = tipo_Membresia;
         Fecha_inicio = fecha_inicio;
         Fecha_fin = fecha_fin;
         Precio = precio;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -67,5 +71,13 @@ public class Membresia {
 
     public void setPrecio(BigDecimal precio) {
         Precio = precio;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

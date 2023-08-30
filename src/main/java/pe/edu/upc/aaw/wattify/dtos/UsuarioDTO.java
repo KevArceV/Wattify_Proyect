@@ -1,38 +1,15 @@
-package pe.edu.upc.aaw.wattify.entities;
+package pe.edu.upc.aaw.wattify.dtos;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 
-@Entity
-@Table(name = "Usuarios")
-public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UsuarioDTO {
     private int Id;
-    @Column(name = "Nombres",length = 45,nullable = false)
     private String Nombres;
-    @Column(name = "Apellidos",length = 45,nullable = false)
     private String Apellidos;
-    @Column(name = "Genero",length = 30,nullable = false)
     private String Genero;
-    @Column(name = "Direccion",length = 60,nullable = false)
     private String Direccion;
-    @Column(name = "DNI",length = 9,nullable = false)
     private String DNI;
-    @Column(name = "Celular",length = 10,nullable = false)
     private String Celular;
-
-    public Usuario() {
-    }
-
-    public Usuario(int id, String nombres, String apellidos, String genero, String direccion, String DNI, String celular) {
-        Id = id;
-        Nombres = nombres;
-        Apellidos = apellidos;
-        Genero = genero;
-        Direccion = direccion;
-        this.DNI = DNI;
-        Celular = celular;
-    }
 
     public int getId() {
         return Id;

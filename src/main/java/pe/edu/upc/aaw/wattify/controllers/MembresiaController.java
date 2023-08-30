@@ -33,4 +33,9 @@ public class MembresiaController {
         }).collect(Collectors.toList());
     }
 
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        mS.delete(id);
+    }
+
 }

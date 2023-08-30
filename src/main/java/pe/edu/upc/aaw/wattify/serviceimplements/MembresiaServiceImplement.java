@@ -22,4 +22,9 @@ public class MembresiaServiceImplement implements IMembresiaService {
     public List<Membresia> list() {
         return mR.findAll();
     }
+
+    @Override
+    public void delete(int idMembresia) {
+        mR.deleteById(idMembresia);
+    }
 }

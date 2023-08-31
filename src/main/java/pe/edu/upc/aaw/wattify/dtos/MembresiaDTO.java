@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class MembresiaDTO {
     private int id;
     private String Tipo_Membresia;
-    private LocalDate Fecha_inicio;
+    private LocalDate fechaInicio;
     private LocalDate Fecha_fin;
     private BigDecimal Precio;
     private Usuario usuario;
@@ -30,11 +30,11 @@ public class MembresiaDTO {
     }
 
     public LocalDate getFecha_inicio() {
-        return Fecha_inicio;
+        return fechaInicio;
     }
 
     public void setFecha_inicio(LocalDate fecha_inicio) {
-        Fecha_inicio = fecha_inicio;
+        fechaInicio = fecha_inicio;
     }
 
     public LocalDate getFecha_fin() {

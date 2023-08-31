@@ -11,8 +11,8 @@ public class Membresia {
     private int id;
     @Column(name = "Tipo_Membresia", length = 50, nullable = false)
     private String Tipo_Membresia;
-    @Column(name = "Fecha_inicio", nullable = false)
-    private LocalDate Fecha_inicio;
+    @Column(name = "fechaInicio", nullable = false)
+    private LocalDate fechaInicio;
     @Column(name = "Fecha_fin", nullable = false)
     private LocalDate Fecha_fin;
     @Column(name = "Precio", length = 10, nullable = false)
@@ -27,7 +27,7 @@ public class Membresia {
     public Membresia(int id, String tipo_Membresia, LocalDate fecha_inicio, LocalDate fecha_fin, BigDecimal precio, Usuario usuario) {
         this.id = id;
         Tipo_Membresia = tipo_Membresia;
-        Fecha_inicio = fecha_inicio;
+        fechaInicio = fecha_inicio;
         Fecha_fin = fecha_fin;
         Precio = precio;
         this.usuario = usuario;
@@ -50,11 +50,11 @@ public class Membresia {
     }
 
     public LocalDate getFecha_inicio() {
-        return Fecha_inicio;
+        return fechaInicio;
     }
 
     public void setFecha_inicio(LocalDate fecha_inicio) {
-        Fecha_inicio = fecha_inicio;
+        fechaInicio = fecha_inicio;
     }
 
     public LocalDate getFecha_fin() {

@@ -6,6 +6,7 @@ import pe.edu.upc.aaw.wattify.entities.Membresia;
 import pe.edu.upc.aaw.wattify.repositories.IMembresiaRepository;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.IMembresiaService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -27,4 +28,10 @@ public class MembresiaServiceImplement implements IMembresiaService {
     public void delete(int idMembresia) {
         mR.deleteById(idMembresia);
     }
+
+    @Override
+    public List<Membresia> findByFechaInicio(LocalDate fechaInicio) {
+        return mR.findByFechaInicio(fechaInicio);
+    }
+
 }

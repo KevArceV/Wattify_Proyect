@@ -7,6 +7,7 @@ import pe.edu.upc.aaw.wattify.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.wattify.entities.Membresia;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.IMembresiaService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,4 +39,11 @@ public class MembresiaController {
         mS.delete(id);
     }
 
+    @PostMapping("/buscaru")
+    public List<MembresiaDTO> buscar(@RequestBody LocalDate fecha) {
+        return mS.findByFechaInicio(fecha).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MembresiaDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

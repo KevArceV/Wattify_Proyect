@@ -10,4 +10,6 @@ public class Dispositivo {
     private int consumo_Hora;
     private int horasEncendidas;
     private LocalDate fecha;
+
+    private String verificar;
 }

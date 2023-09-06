@@ -11,8 +11,8 @@ public class Comprobante_pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "FechaEmision", length = 50, nullable = false)
-    private LocalDate FechaEmision;
+    @Column(name = "fechaEmision", length = 50, nullable = false)
+    private LocalDate fechaEmision;
 
     @ManyToOne
     @JoinColumn(name = "idMetodo_de_Pago")
@@ -30,7 +30,7 @@ public class Comprobante_pago {
 
     public Comprobante_pago(int id, LocalDate fechaEmision, Metodo_de_Pago metodo_de_pago, Membresia membresia, int costo_total) {
         this.id = id;
-        FechaEmision = fechaEmision;
+        fechaEmision = fechaEmision;
         this.metodo_de_pago = metodo_de_pago;
         this.membresia = membresia;
         Costo_total = costo_total;
@@ -45,11 +45,11 @@ public class Comprobante_pago {
     }
 
     public LocalDate getFechaEmision() {
-        return FechaEmision;
+        return fechaEmision;
     }
 
     public void setFechaEmision(LocalDate fechaEmision) {
-        FechaEmision = fechaEmision;
+        fechaEmision = fechaEmision;
     }
 
     public Metodo_de_Pago getMetodo_de_pago() {

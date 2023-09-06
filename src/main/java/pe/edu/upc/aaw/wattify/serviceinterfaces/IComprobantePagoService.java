@@ -9,6 +9,7 @@ public interface IComprobantePagoService {
     public void insert(Comprobante_pago comprobante_pago);
     public List<Comprobante_pago> list();
     public void delete(int idComprobantepago);
-    List<Comprobante_pago>findByFechaEmision(LocalDate FechaEmision);
+    List<Comprobante_pago>findByFechaEmision(LocalDate fechaEmision);
+
 
 }

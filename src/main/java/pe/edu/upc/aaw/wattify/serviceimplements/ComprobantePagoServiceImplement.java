@@ -30,8 +30,9 @@ public class ComprobantePagoServiceImplement implements IComprobantePagoService 
     }
 
     @Override
-    public List<Comprobante_pago> findByFechaEmision(LocalDate FechaEmision) {
-        return mR.findByFechaEmision(FechaEmision);
+    public List<Comprobante_pago> findByFechaEmision(LocalDate fechaEmision) {
+        return mR.findByFechaEmision(fechaEmision);
     }
+
 
 }

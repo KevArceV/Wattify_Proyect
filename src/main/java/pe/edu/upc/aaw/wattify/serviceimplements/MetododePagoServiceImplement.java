@@ -29,9 +29,5 @@ public class MetododePagoServiceImplement implements IMetododePagoService {
         mR.deleteById(idMetododePago);
     }
 
-    @Override
-    public List<Metodo_de_Pago> findByFecha_de_vencimiento(LocalDate Fecha_de_vencimiento) {
-        return mR.findByFecha_de_vencimiento(Fecha_de_vencimiento);
-    }
 
 }

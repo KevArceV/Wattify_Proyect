@@ -1,29 +1,14 @@
-package pe.edu.upc.aaw.wattify.entities;
+package pe.edu.upc.aaw.wattify.dtos;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-
-@Entity
-public class TipoDispositivo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TipoDispositivoDTO {
     private int id;
-
-    @Column(name = "nombreTipoDispositivo", nullable = false)
     private String nombreTipoDispositivo;
-
-    @Column(name = "descripcion")
     private String descripcion;
 
-
-    public TipoDispositivo() {
+    public TipoDispositivoDTO() {
     }
 
-
-    public TipoDispositivo(int id, String nombreTipoDispositivo, String descripcion) {
+    public TipoDispositivoDTO(int id, String nombreTipoDispositivo, String descripcion) {
         this.id = id;
         this.nombreTipoDispositivo = nombreTipoDispositivo;
         this.descripcion = descripcion;
@@ -53,3 +38,4 @@ public class TipoDispositivo {
         this.descripcion = descripcion;
     }
 }
+

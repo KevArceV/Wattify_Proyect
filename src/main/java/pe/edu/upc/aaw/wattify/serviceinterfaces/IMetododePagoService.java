@@ -8,7 +8,6 @@ public interface IMetododePagoService {
     public void insert(Metodo_de_Pago metodo_de_pago);
     public List<Metodo_de_Pago> list();
     public void delete(int idMetododePago);
-    List<Metodo_de_Pago>findByFecha_de_vencimiento(LocalDate Fecha_de_vencimiento);
 
 
 }

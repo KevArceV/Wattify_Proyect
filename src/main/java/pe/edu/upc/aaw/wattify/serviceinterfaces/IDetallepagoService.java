@@ -6,7 +6,6 @@ public interface IDetallepagoService {
     public void insert(Detalle_pago detalle_pago);
     public List<Detalle_pago> list();
     public void delete(int idDetallepago);
-    List<Detalle_pago>findBySub_total_pago(int Sub_total_pago);
 
 
 }

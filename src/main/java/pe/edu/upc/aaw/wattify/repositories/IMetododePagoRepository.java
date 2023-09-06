@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface IMetododePagoRepository extends JpaRepository<Metodo_de_Pago, Integer> {
-    List<Metodo_de_Pago>findByFecha_de_vencimiento(LocalDate Fecha_de_vencimiento);
 }

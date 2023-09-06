@@ -29,9 +29,6 @@ public class DetallePagoServiceImplement implements IDetallepagoService {
         mR.deleteById(idDetallePago);
     }
 
-    @Override
-    public List<Detalle_pago> findBySub_total_pago(int Sub_total_pago) {
-        return mR.findBySub_total_pago(Sub_total_pago);
-    }
+
 
 }

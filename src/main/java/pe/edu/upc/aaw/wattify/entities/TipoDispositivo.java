@@ -1,8 +1,16 @@
 package pe.edu.upc.aaw.wattify.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "TipoDispositivo")
 public class TipoDispositivo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreDispositivo;
+    @Column(name = "nombreTipoDispositivo", nullable = false, length = 35)
+    private String nombreTipoDispositivo;
+    @Column(name = "descripcion", nullable = false, length = 350)
     private String descripcion;
 
     public TipoDispositivo() {
@@ -10,7 +18,7 @@ public class TipoDispositivo {
 
     public TipoDispositivo(int id, String nombreDispositivo, String descripcion) {
         this.id = id;
-        this.nombreDispositivo = nombreDispositivo;
+        this.nombreTipoDispositivo = nombreDispositivo;
         this.descripcion = descripcion;
     }
 
@@ -23,11 +31,11 @@ public class TipoDispositivo {
     }
 
     public String getNombreDispositivo() {
-        return nombreDispositivo;
+        return nombreTipoDispositivo;
     }
 
     public void setNombreDispositivo(String nombreDispositivo) {
-        this.nombreDispositivo = nombreDispositivo;
+        this.nombreTipoDispositivo = nombreDispositivo;
     }
 
     public String getDescripcion() {

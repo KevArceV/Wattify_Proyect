@@ -1,40 +1,17 @@
-package pe.edu.upc.aaw.wattify.entities;
+package pe.edu.upc.aaw.wattify.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.aaw.wattify.entities.TipoDispositivo;
+
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "Dispositivo")
-public class Dispositivo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DispositivoDTO {
     private int id;
-    @Column(name = "nombre", nullable = false, length = 35)
     private String nombre;
-    @Column(name = "descripcion", nullable = false, length = 350)
     private String descripcion;
-    @Column(name = "consumoHora", nullable = false)
     private int consumoHora;
-    @Column(name = "horasEncendidas", nullable = false)
     private int horasEncendidas;
-    @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
-    @ManyToOne
-    @JoinColumn(name = "idTipoDispositivo")
     private TipoDispositivo tipoDispositivo;
-
-    public Dispositivo() {
-    }
-
-    public Dispositivo(int id, String nombre, String descripcion, int consumoHora, int horasEncendidas, LocalDate fecha, TipoDispositivo tipoDispositivo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.consumoHora = consumoHora;
-        this.horasEncendidas = horasEncendidas;
-        this.fecha = fecha;
-        this.tipoDispositivo = tipoDispositivo;
-    }
 
     public int getId() {
         return id;

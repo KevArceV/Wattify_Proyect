@@ -39,12 +39,6 @@ public class ComprobantePagoController {
         mS.delete(id);
     }
 
-    @PostMapping("/buscarc")
-    public List<ComprobantePagoDTO> buscar(@RequestBody LocalDate fechaE) {
-        return mS.findByFechaEmision(fechaE).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, ComprobantePagoDTO.class);
-        }).collect(Collectors.toList());
-    }
+
 }
 

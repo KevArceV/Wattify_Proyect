@@ -39,11 +39,5 @@ public class MetododePagoController {
         mS.delete(id);
     }
 
-    @PostMapping("/buscarv")
-    public List<MetodoPagoDTO> buscar(@RequestBody LocalDate fechaV) {
-        return mS.findByFecha_de_vencimiento(fechaV).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, MetodoPagoDTO.class);
-        }).collect(Collectors.toList());
-    }
+
 }

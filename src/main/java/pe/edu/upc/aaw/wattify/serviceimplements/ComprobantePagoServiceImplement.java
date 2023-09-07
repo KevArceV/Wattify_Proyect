@@ -29,10 +29,6 @@ public class ComprobantePagoServiceImplement implements IComprobantePagoService 
         mR.deleteById(idComprobantepago);
     }
 
-    @Override
-    public List<Comprobante_pago> findByFechaEmision(LocalDate fechaEmision) {
-        return mR.findByFechaEmision(fechaEmision);
-    }
 
 
 }

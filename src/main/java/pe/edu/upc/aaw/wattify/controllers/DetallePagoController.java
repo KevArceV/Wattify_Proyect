@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/comprobantepago")
+@RequestMapping("/detallepago")
 
 public class DetallePagoController {
 
@@ -40,13 +40,5 @@ public class DetallePagoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         mS.delete(id);
-    }
-
-    @PostMapping("/buscarc")
-    public List<DetallePagoDTO> buscar(@RequestBody int sub) {
-        return mS.findBySub_total_pago(sub).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, DetallePagoDTO.class);
-        }).collect(Collectors.toList());
     }
 }

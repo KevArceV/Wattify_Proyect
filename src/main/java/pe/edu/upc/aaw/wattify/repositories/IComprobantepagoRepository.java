@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface IComprobantepagoRepository extends JpaRepository<Comprobante_pago, Integer> {
-    List<Comprobante_pago>findByFechaEmision(LocalDate fechaEmision);
 }

@@ -7,5 +7,4 @@ import java.util.List;
 
 @Repository
 public interface IDetallepagoRepository extends JpaRepository<Detalle_pago, Integer> {
-    List<Detalle_pago>findBySub_total_pago(int Sub_total_pago);
 }

@@ -26,4 +26,9 @@ public class DispositivoServiceImplement implements IDispositivoService {
     public void delete(int idDispositivo) {
     dR.deleteById(idDispositivo);
     }
+
+    @Override
+    public Dispositivo findFirstByNombre(String nombre) {
+        return dR.findFirstByNombre(nombre);
+    }
 }

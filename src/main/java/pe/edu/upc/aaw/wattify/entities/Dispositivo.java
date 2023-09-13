@@ -20,7 +20,7 @@ public class Dispositivo {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
     @ManyToOne
-    @JoinColumn(name = "idTipoDispositivo")
+    @JoinColumn(name = "id")
     private TipoDispositivo tipoDispositivo;
 
     public Dispositivo() {

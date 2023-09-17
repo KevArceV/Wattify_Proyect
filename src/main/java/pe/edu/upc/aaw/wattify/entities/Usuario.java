@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.wattify.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Usuarios")

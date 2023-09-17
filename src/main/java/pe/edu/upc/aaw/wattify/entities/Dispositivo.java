@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.wattify.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "Dispositivo")
@@ -20,7 +21,7 @@ public class Dispositivo {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idTipoDispositivo")
     private TipoDispositivo tipoDispositivo;
 
     public Dispositivo() {

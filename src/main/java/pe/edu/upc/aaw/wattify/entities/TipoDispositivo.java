@@ -10,7 +10,7 @@ import javax.persistence.Column;
 public class TipoDispositivo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTipoDispositivo;
+    private int id;
 
     @Column(name = "nombreTipoDispositivo", nullable = false)
     private String nombreTipoDispositivo;
@@ -24,17 +24,17 @@ public class TipoDispositivo {
 
 
     public TipoDispositivo(int id, String nombreTipoDispositivo, String descripcion) {
-        this.idTipoDispositivo = id;
+        this.id = id;
         this.nombreTipoDispositivo = nombreTipoDispositivo;
         this.descripcion = descripcion;
     }
 
     public int getId() {
-        return idTipoDispositivo;
+        return id;
     }
 
     public void setId(int id) {
-        this.idTipoDispositivo = id;
+        this.id = id;
     }
 
     public String getNombreTipoDispositivo() {

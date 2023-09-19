@@ -1,37 +1,31 @@
 package pe.edu.upc.aaw.wattify.entities;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "Usuarios")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
-    @Column(name = "Nombres", length = 45, nullable = false)
+    private int Id;
+    @Column(name = "Nombres",length = 45,nullable = false)
     private String Nombres;
-    @Column(name = "Apellidos", length = 45, nullable = false)
+    @Column(name = "Apellidos",length = 45,nullable = false)
     private String Apellidos;
-    @Column(name = "Genero", length = 30, nullable = false)
+    @Column(name = "Genero",length = 30,nullable = false)
     private String Genero;
-    @Column(name = "Direccion", length = 60, nullable = false)
+    @Column(name = "Direccion",length = 60,nullable = false)
     private String Direccion;
-    @Column(name = "DNI", length = 9, nullable = false)
+    @Column(name = "DNI",length = 9,nullable = false)
     private String DNI;
-    @Column(name = "Celular", length = 10, nullable = false)
+    @Column(name = "Celular",length = 10,nullable = false)
     private String Celular;
-
-    //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    //private List<Dispositivo_X_Usuario> dispositivo_X_Usuario;
-
 
     public Usuario() {
     }
 
     public Usuario(int id, String nombres, String apellidos, String genero, String direccion, String DNI, String celular) {
-        id_usuario = id;
+        Id = id;
         Nombres = nombres;
         Apellidos = apellidos;
         Genero = genero;
@@ -41,11 +35,11 @@ public class Usuario {
     }
 
     public int getId() {
-        return id_usuario;
+        return Id;
     }
 
     public void setId(int id) {
-        id_usuario = id;
+        Id = id;
     }
 
     public String getNombres() {
@@ -95,13 +89,4 @@ public class Usuario {
     public void setCelular(String celular) {
         Celular = celular;
     }
-
-    /*
-    public List<Dispositivo_X_Usuario> getDispositivo_X_Usuario() {
-        return dispositivo_X_Usuario;
-    }
-
-    public void setDispositivo_X_Usuario(List<Dispositivo_X_Usuario> dispositivo_X_Usuario) {
-        this.dispositivo_X_Usuario = dispositivo_X_Usuario;
-    }*/
 }

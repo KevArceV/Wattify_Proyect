@@ -1,6 +1,5 @@
 package pe.edu.upc.aaw.wattify.serviceimplements;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.wattify.entities.Dispositivo;
 import pe.edu.upc.aaw.wattify.repositories.IDispositivoRepository;
@@ -10,7 +9,7 @@ import java.util.List;
 
 @Service
 public class DispositivoServiceImplement implements IDispositivoService {
-    @Autowired
+
     private IDispositivoRepository dR;
 
     @Override
@@ -25,11 +24,6 @@ public class DispositivoServiceImplement implements IDispositivoService {
 
     @Override
     public void delete(int idDispositivo) {
-        dR.deleteById(idDispositivo);
-    }
-
-    @Override
-    public Dispositivo findFirstByNombre(String nombre) {
-        return dR.findFirstByNombre(nombre);
+    dR.deleteById(idDispositivo);
     }
 }

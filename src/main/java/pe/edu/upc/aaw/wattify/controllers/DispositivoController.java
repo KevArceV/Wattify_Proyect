@@ -43,4 +43,10 @@ public class DispositivoController {
         dS.insert(u);
     }
 
+    @GetMapping("/buscarNombre")
+    public DispositivoDTO listarName(String nombre) {
+        ModelMapper m = new ModelMapper();
+        DispositivoDTO dto = m.map(dS.findFirstByNombre(nombre), DispositivoDTO.class);
+        return dto;
+    }
 }

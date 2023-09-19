@@ -3,7 +3,7 @@ package pe.edu.upc.aaw.wattify.dtos;
 import javax.persistence.Column;
 
 public class UsuarioDTO {
-    private int Id;
+    private int id_usuario;
     private String Nombres;
     private String Apellidos;
     private String Genero;
@@ -12,11 +12,11 @@ public class UsuarioDTO {
     private String Celular;
 
     public int getId() {
-        return Id;
+        return id_usuario;
     }
 
     public void setId(int id) {
-        Id = id;
+        id_usuario = id;
     }
 
     public String getNombres() {

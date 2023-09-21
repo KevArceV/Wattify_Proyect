@@ -10,21 +10,18 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
-    @Column(name = "Nombres", length = 45, nullable = false)
+    @Column(name = "nombres", length = 45, nullable = false)
     private String Nombres;
-    @Column(name = "Apellidos", length = 45, nullable = false)
+    @Column(name = "apellidos", length = 45, nullable = false)
     private String Apellidos;
-    @Column(name = "Genero", length = 30, nullable = false)
+    @Column(name = "genero", length = 30, nullable = false)
     private String Genero;
-    @Column(name = "Direccion", length = 60, nullable = false)
+    @Column(name = "direccion", length = 60, nullable = false)
     private String Direccion;
-    @Column(name = "DNI", length = 9, nullable = false)
+    @Column(name = "dni", length = 9, nullable = false)
     private String DNI;
-    @Column(name = "Celular", length = 10, nullable = false)
+    @Column(name = "celular", length = 10, nullable = false)
     private String Celular;
-
-    //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    //private List<Dispositivo_X_Usuario> dispositivo_X_Usuario;
 
 
     public Usuario() {

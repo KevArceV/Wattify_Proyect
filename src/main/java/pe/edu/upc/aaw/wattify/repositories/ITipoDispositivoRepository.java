@@ -9,9 +9,4 @@ import java.util.List;
 @Repository
 public interface ITipoDispositivoRepository extends JpaRepository<TipoDispositivo, Integer> {
 
-
-    List<TipoDispositivo> findByNombreTipoDispositivo(String nombreTipoDispositivo);
-
-
-    List<TipoDispositivo> findByDescripcion(String descripcion);
 }

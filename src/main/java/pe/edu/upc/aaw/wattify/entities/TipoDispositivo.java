@@ -12,10 +12,10 @@ public class TipoDispositivo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTipoDispositivo;
 
-    @Column(name = "nombreTipoDispositivo", nullable = false)
+    @Column(name = "nombreTipoDispositivo",length = 150,nullable = false)
     private String nombreTipoDispositivo;
 
-    @Column(name = "descripcion")
+    @Column(name = "descripcion",length = 150,nullable = false)
     private String descripcion;
 
 

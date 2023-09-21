@@ -1,25 +1,19 @@
 package pe.edu.upc.aaw.wattify.dtos;
 
 public class TipoDispositivoDTO {
-    private int id;
+    private int idTipoDispositivo;
     private String nombreTipoDispositivo;
     private String descripcion;
 
     public TipoDispositivoDTO() {
     }
 
-    public TipoDispositivoDTO(int id, String nombreTipoDispositivo, String descripcion) {
-        this.id = id;
-        this.nombreTipoDispositivo = nombreTipoDispositivo;
-        this.descripcion = descripcion;
+    public int getIdTipoDispositivo() {
+        return idTipoDispositivo;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTipoDispositivo(int idTipoDispositivo) {
+        this.idTipoDispositivo = idTipoDispositivo;
     }
 
     public String getNombreTipoDispositivo() {

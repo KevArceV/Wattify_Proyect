@@ -39,11 +39,19 @@ public class MembresiaController {
         mS.delete(id);
     }
 
-    @PostMapping("/buscaru")
+
+    @PostMapping("/buscarMembresia")
     public List<MembresiaDTO> buscar(@RequestBody LocalDate fecha) {
         return mS.findByFechaInicio(fecha).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, MembresiaDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody MembresiaDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Membresia mb = m.map(dto, Membresia.class);
+        mS.insert(mb);
     }
 }

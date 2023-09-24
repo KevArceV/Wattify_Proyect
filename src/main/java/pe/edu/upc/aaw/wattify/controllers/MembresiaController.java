@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.wattify.dtos.MembresiaDTO;
+import pe.edu.upc.aaw.wattify.dtos.Membresia_X_UsuarioDTO;
 import pe.edu.upc.aaw.wattify.entities.Membresia;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.IMembresiaService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,5 +57,19 @@ public class MembresiaController {
         ModelMapper m = new ModelMapper();
         Membresia mb = m.map(dto, Membresia.class);
         mS.insert(mb);
+    }
+
+    @GetMapping("/nroUsuariosxMembresia")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<Membresia_X_UsuarioDTO> nroUsuariosPorTipoDeMembresia() {
+        List<String[]> lista = mS.CantidadDeUsuariosXTipoMembresia();
+        List<Membresia_X_UsuarioDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            Membresia_X_UsuarioDTO dto = new Membresia_X_UsuarioDTO();
+            dto.setTipoMembresia(data[0]);
+            dto.setCantidadUsuarios(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

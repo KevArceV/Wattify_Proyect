@@ -34,8 +34,10 @@ public class TipoDispositivoServiceImplements implements ITipoDispositivoService
     }
 
     @Override
-    public List<String[]> cantidadDispositivosXtipoDispositivo() {
-        return mR.cantidadDispositivosXtipoDispositivo();
+    public List<String[]> cantidadDispositivosXtipo() {
+        return mR.cantidadDispositivosXtipo();
     }
+
+
 }
 

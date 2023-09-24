@@ -4,9 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.wattify.dtos.CantDispositivosXtipoDispositivoDTO;
+import pe.edu.upc.aaw.wattify.dtos.DispositivosXTiposDTO;
 import pe.edu.upc.aaw.wattify.dtos.TipoDispositivoDTO;
+import pe.edu.upc.aaw.wattify.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.wattify.entities.TipoDispositivo;
+import pe.edu.upc.aaw.wattify.entities.Usuario;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.ITipoDispositivoService;
 
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class TipoDispositivoController {
     private ITipoDispositivoService tipoDispositivoService;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody TipoDispositivoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         TipoDispositivo tipoDispositivo = modelMapper.map(dto, TipoDispositivo.class);
@@ -28,6 +31,7 @@ public class TipoDispositivoController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<TipoDispositivoDTO> listar() {
         return tipoDispositivoService.list().stream().map(x -> {
             ModelMapper modelMapper = new ModelMapper();
@@ -36,20 +40,28 @@ public class TipoDispositivoController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void eliminar(@PathVariable("id") Integer id) {
         tipoDispositivoService.delete(id);
     }
 
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')or hasAuthority('USER')")
+    public void actualizar(@RequestBody TipoDispositivoDTO dto){
+        ModelMapper m = new ModelMapper();
+        TipoDispositivo t=m.map(dto,TipoDispositivo.class);
+        tipoDispositivoService.insert(t);
+    }
 
-    @GetMapping("/CantTipoDispositivoXdispositivo")
+    @GetMapping("/CantidadDeDispositivosXTipo")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<CantDispositivosXtipoDispositivoDTO> cantidadTotal() {
-        List<String[]> lista = tipoDispositivoService.cantidadDispositivosXtipoDispositivo();
-        List<CantDispositivosXtipoDispositivoDTO> listaDTO = new ArrayList<>();
+    public List<DispositivosXTiposDTO> cantidadTotal() {
+        List<String[]> lista = tipoDispositivoService.cantidadDispositivosXtipo();
+        List<DispositivosXTiposDTO> listaDTO = new ArrayList<>();
         for (String[] data : lista) {
-            CantDispositivosXtipoDispositivoDTO dto = new CantDispositivosXtipoDispositivoDTO();
-            dto.setNombre(data[0]);
-            dto.setCantidad(Integer.parseInt(data[1]));
+            DispositivosXTiposDTO dto = new DispositivosXTiposDTO();
+            dto.setNombre_tipo_dispositivo(data[0]);
+            dto.setCantidad_de_dispositivos(Integer.parseInt(data[1]));
             listaDTO.add(dto);
         }
         return listaDTO;

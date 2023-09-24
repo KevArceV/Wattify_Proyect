@@ -17,6 +17,6 @@ public interface ITipoDispositivoService {
 
     public void delete(int idTipoDispositivo);
 
-    public List<String[]> cantidadDispositivosXtipoDispositivo();
+    public List<String[]> cantidadDispositivosXtipo();
 
 }

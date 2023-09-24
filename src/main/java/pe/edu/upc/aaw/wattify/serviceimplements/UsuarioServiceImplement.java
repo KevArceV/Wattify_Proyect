@@ -29,7 +29,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
 
     @Override
-    public Usuario listId(int idUsuario) {
-        return uR.findById(idUsuario).orElse(new Usuario());
+    public List<String[]> cantidad_usuarios_bygenero() {
+        return uR.cantidad_usuarios_bygenero();
     }
 }

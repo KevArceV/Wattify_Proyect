@@ -35,8 +35,9 @@ public class MembresiaServiceImplement implements IMembresiaService {
     }
 
     @Override
-    public List<String[]> CantidadDeUsuariosXTipoMembresia() {
-        return mR.CantidadDeUsuariosXTipoMembresia();
+    public List<String[]> CantUsuariosPrecioTotalXTipoMembresia() {
+        return mR.CantUsuariosPrecioTotalXTipoMembresia();
     }
+
 
 }

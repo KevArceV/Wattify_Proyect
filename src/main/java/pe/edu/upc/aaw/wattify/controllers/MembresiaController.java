@@ -9,6 +9,7 @@ import pe.edu.upc.aaw.wattify.dtos.Membresia_X_UsuarioDTO;
 import pe.edu.upc.aaw.wattify.entities.Membresia;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.IMembresiaService;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,15 +60,16 @@ public class MembresiaController {
         mS.insert(mb);
     }
 
-    @GetMapping("/nroUsuariosxMembresia")
+    @GetMapping("/nroUsersPrecioTotalxMembresia")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<Membresia_X_UsuarioDTO> nroUsuariosPorTipoDeMembresia() {
-        List<String[]> lista = mS.CantidadDeUsuariosXTipoMembresia();
+    public List<Membresia_X_UsuarioDTO> UsuarioPreccioXTipoMembresia() {
+        List<String[]> lista = mS.CantUsuariosPrecioTotalXTipoMembresia();
         List<Membresia_X_UsuarioDTO> listaDTO = new ArrayList<>();
         for (String[] data : lista) {
             Membresia_X_UsuarioDTO dto = new Membresia_X_UsuarioDTO();
             dto.setTipoMembresia(data[0]);
             dto.setCantidadUsuarios(Integer.parseInt(data[1]));
+            dto.setPrecioTotal(new BigDecimal(data[2]));
             listaDTO.add(dto);
         }
         return listaDTO;

@@ -24,6 +24,7 @@ public class MembresiaController {
     private IMembresiaService mS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody MembresiaDTO dto) {
         ModelMapper m = new ModelMapper();
         Membresia mb = m.map(dto, Membresia.class);
@@ -31,7 +32,7 @@ public class MembresiaController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<MembresiaDTO> listar() {
         return mS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -40,20 +41,14 @@ public class MembresiaController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void eliminar(@PathVariable("id") Integer id) {
         mS.delete(id);
     }
 
 
-    @PostMapping("/buscarMembresia")
-    public List<MembresiaDTO> buscar(@RequestBody LocalDate fecha) {
-        return mS.findByFechaInicio(fecha).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, MembresiaDTO.class);
-        }).collect(Collectors.toList());
-    }
-
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void modificar(@RequestBody MembresiaDTO dto) {
         ModelMapper m = new ModelMapper();
         Membresia mb = m.map(dto, Membresia.class);

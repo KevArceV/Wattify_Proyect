@@ -29,10 +29,6 @@ public class MembresiaServiceImplement implements IMembresiaService {
         mR.deleteById(idMembresia);
     }
 
-    @Override
-    public List<Membresia> findByFechaInicio(LocalDate fechaInicio) {
-        return mR.findByFechaInicio(fechaInicio);
-    }
 
     @Override
     public List<String[]> CantUsuariosPrecioTotalXTipoMembresia() {

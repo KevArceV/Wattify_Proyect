@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Membresia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id_Membresia;
     @Column(name = "Tipo_Membresia", length = 50, nullable = false)
     private String Tipo_Membresia;
     @Column(name = "fechaInicio", nullable = false)
@@ -24,21 +24,21 @@ public class Membresia {
     public Membresia() {
     }
 
-    public Membresia(int id, String tipo_Membresia, LocalDate fecha_inicio, LocalDate fecha_fin, BigDecimal precio, Usuario usuario) {
-        this.id = id;
+    public Membresia(int id_Membresia, String tipo_Membresia, LocalDate fechaInicio, LocalDate fecha_fin, BigDecimal precio, Usuario usuario) {
+        this.id_Membresia = id_Membresia;
         Tipo_Membresia = tipo_Membresia;
-        fechaInicio = fecha_inicio;
+        this.fechaInicio = fechaInicio;
         Fecha_fin = fecha_fin;
         Precio = precio;
         this.usuario = usuario;
     }
 
-    public int getId() {
-        return id;
+    public int getId_Membresia() {
+        return id_Membresia;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_Membresia(int id_Membresia) {
+        this.id_Membresia = id_Membresia;
     }
 
     public String getTipo_Membresia() {
@@ -49,12 +49,12 @@ public class Membresia {
         Tipo_Membresia = tipo_Membresia;
     }
 
-    public LocalDate getFecha_inicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFecha_inicio(LocalDate fecha_inicio) {
-        fechaInicio = fecha_inicio;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public LocalDate getFecha_fin() {

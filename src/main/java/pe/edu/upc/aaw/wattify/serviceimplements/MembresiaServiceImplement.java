@@ -34,4 +34,9 @@ public class MembresiaServiceImplement implements IMembresiaService {
         return mR.findByFechaInicio(fechaInicio);
     }
 
+    @Override
+    public List<String[]> CantidadDeUsuariosXTipoMembresia() {
+        return mR.CantidadDeUsuariosXTipoMembresia();
+    }
+
 }

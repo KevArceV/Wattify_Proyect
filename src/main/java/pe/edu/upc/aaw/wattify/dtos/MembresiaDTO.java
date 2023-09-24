@@ -6,19 +6,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class MembresiaDTO {
-    private int id;
+    private int id_Membresia;
     private String Tipo_Membresia;
     private LocalDate fechaInicio;
     private LocalDate Fecha_fin;
     private BigDecimal Precio;
     private Usuario usuario;
 
-    public int getId() {
-        return id;
+    public int getId_Membresia() {
+        return id_Membresia;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_Membresia(int id_Membresia) {
+        this.id_Membresia = id_Membresia;
     }
 
     public String getTipo_Membresia() {
@@ -29,12 +29,12 @@ public class MembresiaDTO {
         Tipo_Membresia = tipo_Membresia;
     }
 
-    public LocalDate getFecha_inicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFecha_inicio(LocalDate fecha_inicio) {
-        fechaInicio = fecha_inicio;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public LocalDate getFecha_fin() {

@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.wattify.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.wattify.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.wattify.entities.Membresia;
@@ -27,6 +28,7 @@ public class MembresiaController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<MembresiaDTO> listar() {
         return mS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

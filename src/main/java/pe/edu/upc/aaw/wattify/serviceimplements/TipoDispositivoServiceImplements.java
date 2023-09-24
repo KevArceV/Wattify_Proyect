@@ -17,9 +17,9 @@ public class TipoDispositivoServiceImplements implements ITipoDispositivoService
 
 
     @Override
-    public void insert (TipoDispositivo tipoDispositivo) {
+    public void insert(TipoDispositivo tipoDispositivo) {
 
-        mR.save(tipoDispositivo );
+        mR.save(tipoDispositivo);
 
     }
 
@@ -30,9 +30,12 @@ public class TipoDispositivoServiceImplements implements ITipoDispositivoService
 
     @Override
     public void delete(int idTipoDispositivo) {
-mR.deleteById(idTipoDispositivo);
+        mR.deleteById(idTipoDispositivo);
     }
 
-
+    @Override
+    public List<String[]> cantidadDispositivosXtipoDispositivo() {
+        return mR.cantidadDispositivosXtipoDispositivo();
+    }
 }
 

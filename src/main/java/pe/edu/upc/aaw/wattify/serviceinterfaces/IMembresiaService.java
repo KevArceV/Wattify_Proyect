@@ -9,7 +9,7 @@ public interface IMembresiaService {
     public void insert(Membresia membresia);
     public List<Membresia> list();
     public void delete(int idMembresia);
-    List<Membresia>findByFechaInicio(LocalDate fechaInicio);
+    public List<String[]>CantUsuariosPrecioTotalXTipoMembresia();
 
 
 }

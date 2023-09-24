@@ -40,7 +40,7 @@ public class MembresiaController {
     }
 
 
-    @GetMapping("/buscarMembresia")
+    @PostMapping("/buscarMembresia")
     public List<MembresiaDTO> buscar(@RequestBody LocalDate fecha) {
         return mS.findByFechaInicio(fecha).stream().map(x -> {
             ModelMapper m = new ModelMapper();

@@ -31,5 +31,11 @@ public class TipoDispositivoDTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
+
+
+
+
 }
 

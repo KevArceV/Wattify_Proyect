@@ -10,5 +10,5 @@ public interface IComprobantePagoService {
     public List<Comprobante_pago> list();
     public void delete(int idComprobantepago);
 
-
+    public List<String[]> SumaTotalXMetodoPago();
 }

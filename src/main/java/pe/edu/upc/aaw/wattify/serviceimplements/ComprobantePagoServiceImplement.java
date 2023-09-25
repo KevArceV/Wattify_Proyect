@@ -29,6 +29,10 @@ public class ComprobantePagoServiceImplement implements IComprobantePagoService 
         mR.deleteById(idComprobantepago);
     }
 
+    @Override
+    public List<String[]> SumaTotalXMetodoPago() {
+        return mR.SumaTotalXMetodoPago();
+    }
 
 
 }

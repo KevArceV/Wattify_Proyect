@@ -2,12 +2,16 @@ package pe.edu.upc.aaw.wattify.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.wattify.dtos.ComprobantePagoDTO;
+import pe.edu.upc.aaw.wattify.dtos.SumaTotal_X_MetodoPagoDTO;
+import pe.edu.upc.aaw.wattify.dtos.Usuario_CantidadDTO;
 import pe.edu.upc.aaw.wattify.entities.Comprobante_pago;
 import pe.edu.upc.aaw.wattify.serviceinterfaces.IComprobantePagoService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +43,18 @@ public class ComprobantePagoController {
         mS.delete(id);
     }
 
-
+    @GetMapping("/SumaTotalXMetodoPago")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<SumaTotal_X_MetodoPagoDTO> SumaTotalXMetodoPago(){
+        List<String[]> lista = mS.SumaTotalXMetodoPago();
+        List<SumaTotal_X_MetodoPagoDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            SumaTotal_X_MetodoPagoDTO dto = new SumaTotal_X_MetodoPagoDTO();
+            dto.setName(data[0]);
+            dto.setCantidad(Double.parseDouble(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 }
 
